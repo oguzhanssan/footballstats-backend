@@ -3,7 +3,7 @@ flask-cors==5.0.0
 flask-limiter==3.7.0
 flask-talisman==1.1.0
 Flask-WTF==1.2.1
-pandas==2.2.2
+pandas==2.2.3
 requests==2.32.3
 beautifulsoup4==4.12.3
 selenium==4.23.1
