@@ -60,7 +60,7 @@ talisman = Talisman(
     strict_transport_security=True,
     force_https=False,  # Production'da True yapın
     frame_options='DENY',
-    content_type_options=True
+    x_content_type_options=True
 )
 
 # Güvenlik loglama
