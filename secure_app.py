@@ -176,8 +176,14 @@ def get_league_stats(league):
     # Scraping kodunuz buraya (önceki AdvancedStatsCollector)
     stats = []  # collector.get_detailed_stats(league)  # Mevcut kodunuz
     
-    if not stats:
-        return jsonify({'error': f'{league.upper()} verisi alınamadı'}), 503
+ #   if not stats:
+ #       return jsonify({'error': f'{league.upper()} verisi alınamadı'}), 503
+ if not stats:
+    return jsonify({
+        'lig': league.upper(),
+        'oyuncular': [],
+        'mesaj': 'Henüz veri çekilmedi, scraping fonksiyonunu bağlayın.'
+    })
     
     df = pd.DataFrame(stats)
     top_players = df.nlargest(limit, 'performans_skoru').to_dict('records')
