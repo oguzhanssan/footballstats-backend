@@ -184,6 +184,11 @@ def get_league_stats(league):
     
     # Scraping kodunuz buraya (önceki AdvancedStatsCollector)
     stats = []  # collector.get_detailed_stats(league)  # Mevcut kodunuz
+    stats = [
+        {'oyuncu': 'Mauro Icardi', 'performans_skoru': 92, 'takim': 'Galatasaray'},
+        {'oyuncu': 'Edin Dzeko', 'performans_skoru': 88, 'takim': 'Fenerbahçe'},
+        {'oyuncu': 'Gedson Fernandes', 'performans_skoru': 85, 'takim': 'Beşiktaş'}
+    ]
     
  #   if not stats:
  #       return jsonify({'error': f'{league.upper()} verisi alınamadı'}), 503
