@@ -105,7 +105,7 @@ class SecureStatsCollector:
 
 collector = SecureStatsCollector()
 
-def security_wrapper(f):
+'''def security_wrapper(f):
     """Tüm endpoint'ler için güvenlik katmanı"""
     @wraps(f)
     def decorated_function(*args, **kwargs):
@@ -128,7 +128,16 @@ def security_wrapper(f):
         
         return f(*args, **kwargs)
     return decorated_function
-
+'''
+def security_wrapper(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        ua = request.headers.get('User-Agent', '')
+        if not any(x in ua for x in PERMITTED_USER_AGENTS):
+            abort(403)
+        return f(*args, **kwargs)
+    return decorated_function
+    
 @app.errorhandler(400)
 def bad_request(e):
     return jsonify({'error': 'Geçersiz istek'}), 400
