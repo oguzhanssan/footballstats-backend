@@ -178,12 +178,12 @@ def get_league_stats(league):
     
  #   if not stats:
  #       return jsonify({'error': f'{league.upper()} verisi alınamadı'}), 503
- if not stats:
-    return jsonify({
+    if not stats:
+        return jsonify({
         'lig': league.upper(),
         'oyuncular': [],
         'mesaj': 'Henüz veri çekilmedi, scraping fonksiyonunu bağlayın.'
-    })
+        })
     
     df = pd.DataFrame(stats)
     top_players = df.nlargest(limit, 'performans_skoru').to_dict('records')
